@@ -1,17 +1,30 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div style="width: 50%; margin-left: auto; margin-right:auto;">
+      <GetAddress :apiKey="apiKey" v-on:address-selected="logAddress"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GetAddress from './components/getaddress-io.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    GetAddress
+  },
+  data() {
+    return {
+      apiKey: "K-lNWjgMGkCYDBQIsu0u4g13208"
+    }
+  },
+  methods: {
+    logAddress: function(address) {
+      /* eslint-disable */ 
+      console.log(address);
+    }
   }
 }
 </script>
